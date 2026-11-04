@@ -1,0 +1,14 @@
+Bootstrap 5.3.3
+Copyright 2011-2024 The Bootstrap Authors. MIT license.
+Source: https://github.com/twbs/bootstrap/blob/v5.3.3/LICENSE
+
+Outfit font
+Copyright The Outfit Project Authors. SIL Open Font License 1.1.
+Source: https://github.com/Outfitio/Outfit-Fonts
+
+Plus Jakarta Sans font
+Copyright The Plus Jakarta Sans Project Authors. SIL Open Font License 1.1.
+Source: https://github.com/tokotype/PlusJakartaSans
+
+Original QUIZ by PTA Pabar logo and illustrations generated specifically for this project.
+Original music composition and synthesis: scripts/generate-music.cjs; public/audio/CREDITS.txt.

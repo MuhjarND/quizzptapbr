@@ -1,0 +1,1 @@
+@include('errors.arena', ['errorTitle'=>'Akses tidak tersedia', 'errorMessage'=>'Anda tidak memiliki akses ke halaman ini. Peserta perlu memakai browser yang sama saat bergabung; host perlu masuk ke akun pemilik kuis.'])

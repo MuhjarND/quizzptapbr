@@ -1,0 +1,1 @@
+<a class="brand" href="{{ $brandHref ?? route('home') }}" aria-label="{{ config('app.name') }}"><img class="brand-logo" src="{{ asset('images/quiz-pta-pabar-logo.png') }}" alt="{{ config('app.name') }}" width="185" height="62"></a>

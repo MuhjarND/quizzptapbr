@@ -1,0 +1,7 @@
+Langkah Ceria
+Original instrumental theme composed and synthesized for QUIZ by PTA Pabar.
+120 BPM, C major, 16 bars, 32 seconds, stereo PCM 24 kHz.
+Plucked keys, warm chord pads, bass and gentle synthesized percussion.
+No third-party samples, recordings, melodies or paid services are used.
+Composition and reproducible synthesis: scripts/generate-music.cjs.
+Music is played locally and loops during active quiz questions only.
