@@ -13,5 +13,5 @@ $pad=12;$sw=$right-$left+1;$sh=$bottom-$top+1;$width=900;$height=(int)round(($sh
 $target=imagecreatetruecolor($width,$height);imagealphablending($target,false);imagesavealpha($target,true);imagefill($target,0,0,imagecolorallocatealpha($target,0,0,0,127));
 $scale=$width/($sw+2*$pad);
 imagecopyresampled($target,$image,(int)round($pad*$scale),(int)round($pad*$scale),$left,$top,(int)round($sw*$scale),(int)round($sh*$scale),$sw,$sh);
-$output=$root.'/public/images/quiz-pta-pabar-logo.png';imagepng($target,$output,9);imagedestroy($image);imagedestroy($target);
+$output=$argv[2] ?? $root.'/public/images/quiz-pta-pabar-logo.png';imagepng($target,$output,9);imagedestroy($image);imagedestroy($target);
 echo 'Header logo: '.$width.' x '.$height.' ('.filesize($output)." bytes)\n";

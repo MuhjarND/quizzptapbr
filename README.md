@@ -118,7 +118,7 @@ Tekan **Aktifkan suara** di halaman gabung atau lobby. Browser memerlukan intera
 
 ## Musik latar dan identitas aplikasi
 
-Nama tampilan aplikasi adalah **Cerdas Bersama PTA Papua Barat**, termasuk logo header/sidebar, judul tab, footer, dan pesan akun. Logo buku biru dengan percikan emas dan tulisan dua baris berada di `resources/views/partials/brand.blade.php`. Favicon memakai simbol buku yang sama.
+Nama tampilan aplikasi adalah **Cerdas Bersama PTA Papua Barat**, termasuk logo header/sidebar, judul tab, footer, dan pesan akun. Logo khusus memadukan buku, dua pelajar, dan cenderawasih beraksen emas. PNG transparan asli berada di `public/images/cerdas-bersama-logo-original-v1.png`, sedangkan versi header yang ringan adalah `public/images/cerdas-bersama-logo-v1.png`. Partial `resources/views/partials/brand.blade.php` menerapkannya pada semua halaman. Ukuran responsif diatur pada `public/css/brand-music.css`.
 
 Untuk menerapkan nama baru pada server yang sudah terpasang, atur `APP_NAME="Cerdas Bersama PTA Papua Barat"` di `.env`, unggah kode terbaru, lalu jalankan `php artisan config:clear` dan `php artisan view:clear`.
 
