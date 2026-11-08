@@ -1,5 +1,5 @@
 ---
-name: QUIZ by PTA Pabar
+name: Cerdas Bersama PTA Papua Barat
 version: 2
 character-version: 1
 description: Arena belajar yang cerah, ramah, dan mudah dibaca.
@@ -26,7 +26,7 @@ components:
   dialog: {}
 ---
 
-QUIZ by PTA Pabar serves Indonesian hosts on laptops and guests on phones. Dashboard/editor are product surfaces; landing is a concise brand surface. The signature is a royal-blue 3D trophy with playful quiz shapes, complemented by original illustrated quiz covers. No borrowed Kahoot identity.
+Cerdas Bersama PTA Papua Barat serves Indonesian hosts on laptops and guests on phones. Dashboard/editor are product surfaces; landing is a concise brand surface. The signature is a royal-blue 3D trophy with playful quiz shapes, complemented by original illustrated quiz covers. No borrowed Kahoot identity.
 
 The generated dashboard concept is the visual reference. Its main dashboard is implemented; the small editor/game previews establish palette only. Unsupported sample toggles from those previews are omitted. Runtime source of truth is `public/css/app.css` custom properties; this file mirrors those tokens. Outfit headings, Plus Jakarta Sans body, self-hosted fonts. Light-only design, white panels on cool gray; blue primary buttons, subtle borders, low shadows, 20px panels, 12px controls. Sidebar 238px; content max 1320px; 3 quiz columns desktop, 2 tablet, 1 phone. Mobile navigation becomes a horizontal header.
 
@@ -34,7 +34,7 @@ Use semantic 20px stroke icons from a shared Blade primitive. Headers 28–44px,
 
 Character collection: Nala (coral fox), Bimo (blue robot), Kiko (mint frog), Luna (lilac rabbit), Oki (turquoise octopus), Momo (caramel bear). Original transparent 3D character art lives in public/images/characters. config/characters.php is canonical for stable keys, names, image filenames and pastel backing colors. public/css/characters.css adds the shared avatar, native radio tiles, selected-character preview and sound controls without changing the base theme. Join uses a two-column picker/form, stacking at 760px; the six native radio options stay in a 3×2 grid. Name, check mark and focus ring reinforce color. Avatars preserve full silhouettes with object-fit:contain in lobby, gameplay identity, rankings and saved results.
 
-Brand v2: original transparent logo in public/images/quiz-pta-pabar-logo-original.png; packed header derivative quiz-pta-pabar-logo.png. It combines a blue Q/play mark, four answer tiles and the exact wordmark QUIZ with secondary text by PTA Pabar. Shared partials/brand.blade.php owns the lockup and config('app.name') owns display naming. Public and authenticated shells use the same mark; favicon is a simplified code-native Q/play/tile variant at small sizes. brand-music.css owns responsive logo sizing (185px desktop, 158px phone) and music control geometry. Existing sidebar, cards, characters and palette remain the visual system.
+Brand v3: Cerdas Bersama PTA Papua Barat uses a blue open-book symbol with gold learning sparks. Shared partials/brand.blade.php owns the inline SVG and two-line wordmark, Cerdas Bersama / PTA Papua Barat. config('app.name') owns page naming and the game configuration passes this name to podium.js. The favicon uses the same book symbol. brand-music.css owns responsive geometry, with 21px desktop, 18px sidebar and 16px phone wordmarks. Palette and typography consume app.css tokens.
 
 Original background composition: Langkah Ceria, 120 BPM, 16 bars/32s, plucked keys, soft pads, bass and light percussion. Local WAV is decoded once and looped only while a question is active, pausing at results and stopping at finished. Music and effects have independent gain and mute controls; effect cues briefly reduce music gain. Two compact control groups sit side by side on phones without horizontal overflow.
 

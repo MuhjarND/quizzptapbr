@@ -1,4 +1,4 @@
-# QUIZ by PTA Pabar
+# Cerdas Bersama PTA Papua Barat
 
 Aplikasi kuis interaktif berbahasa Indonesia: host membuat kuis, peserta masuk dengan PIN, menjawab bersama, lalu melihat podium dan hasil yang tersimpan.
 
@@ -39,7 +39,7 @@ CREATE DATABASE quiz_arena CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 4. Sesuaikan `.env` dengan konfigurasi lokal:
 
 ```dotenv
-APP_NAME="QUIZ by PTA Pabar"
+APP_NAME="Cerdas Bersama PTA Papua Barat"
 APP_ENV=local
 APP_DEBUG=false
 APP_URL=http://127.0.0.1:8000
@@ -118,7 +118,11 @@ Tekan **Aktifkan suara** di halaman gabung atau lobby. Browser memerlukan intera
 
 ## Musik latar dan identitas aplikasi
 
-Nama tampilan aplikasi adalah **QUIZ by PTA Pabar**, termasuk logo header/sidebar, judul tab, footer, dan pesan akun. Logo transparan resolusi penuh tersedia di `public/images/quiz-pta-pabar-logo-original.png`; versi header yang ringan ada di `public/images/quiz-pta-pabar-logo.png`. Semua halaman memakai partial brand bersama. Nama database, akun contoh, dan cookie `quizarena_session` tetap dipertahankan agar data dan identitas sesi sebelumnya kompatibel.
+Nama tampilan aplikasi adalah **Cerdas Bersama PTA Papua Barat**, termasuk logo header/sidebar, judul tab, footer, dan pesan akun. Logo buku biru dengan percikan emas dan tulisan dua baris berada di `resources/views/partials/brand.blade.php`. Favicon memakai simbol buku yang sama.
+
+Untuk menerapkan nama baru pada server yang sudah terpasang, atur `APP_NAME="Cerdas Bersama PTA Papua Barat"` di `.env`, unggah kode terbaru, lalu jalankan `php artisan config:clear` dan `php artisan view:clear`.
+
+Akun host tambahan **Admin PTA Papua Barat** dibuat di database lokal dengan email login **admin@ptapapuabarat.test**. Alamat ini merupakan identitas login contoh. Pada database server terpisah, jalankan `php artisan host:create admin@ptapapuabarat.test`. Perintah membuat kata sandi acak baru dan menampilkannya sekali di terminal. Kata sandi disimpan sebagai hash. Email yang sudah terdaftar ditolak. Hak akun mengikuti aturan host dan kepemilikan kuis yang berlaku.
 
 Musik khusus **Langkah Ceria** adalah komposisi instrumental orisinal 32 detik: melodi plucked keys, akor lembut, bass dan perkusi ringan. File WAV lokal `public/audio/pta-pabar-theme.wav` diputar berulang selama soal aktif. Saat hasil muncul musik dijeda, soal berikutnya melanjutkan posisi sebelumnya, dan selesai permainan menghentikannya. Musik juga berhenti saat tab tersembunyi, meninggalkan halaman, atau waktu soal habis.
 
@@ -169,4 +173,4 @@ Browser QA memakai Playwright Chromium karena plugin Browser tidak tersedia. Ver
 
 ## Aset dan lisensi
 
-Ilustrasi dan logo dibuat khusus untuk QUIZ by PTA Pabar. Logo utama merupakan aset PNG transparan orisinal; ikon kecil/favicon dibuat sebagai SVG/Blade. Musik Langkah Ceria disusun dan disintesis khusus aplikasi ini, tanpa rekaman/sampel pihak ketiga. Bootstrap MIT, Outfit dan Plus Jakarta Sans SIL Open Font License; font disajikan sendiri agar halaman tidak bergantung pada CDN. Lihat `public/vendor/LICENSES.txt`.
+Ilustrasi dan logo dibuat khusus untuk Cerdas Bersama PTA Papua Barat. Logo utama merupakan aset PNG transparan orisinal; ikon kecil/favicon dibuat sebagai SVG/Blade. Musik Langkah Ceria disusun dan disintesis khusus aplikasi ini, tanpa rekaman/sampel pihak ketiga. Bootstrap MIT, Outfit dan Plus Jakarta Sans SIL Open Font License; font disajikan sendiri agar halaman tidak bergantung pada CDN. Lihat `public/vendor/LICENSES.txt`.

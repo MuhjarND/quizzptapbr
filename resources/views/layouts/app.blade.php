@@ -5,7 +5,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="theme-color" content="#3f5eff"><meta name="description" content="{{ config('app.name') }} — buat kuis interaktif dan mainkan bersama teman, kelas, atau tim Anda.">
     <title>@yield('title', config('app.name')) · {{ config('app.name') }}</title>
-    <link rel="icon" type="image/svg+xml" href="{{ asset('images/favicon.svg') }}?v=pta-pabar-1">
+    <link rel="icon" type="image/svg+xml" href="{{ asset('images/favicon.svg') }}?v=cerdas-bersama-1">
     <link rel="stylesheet" href="{{ asset('vendor/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/characters.css') }}">

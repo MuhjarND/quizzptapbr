@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'QUIZ by PTA Pabar'),
+    'name' => env('APP_NAME', 'Cerdas Bersama PTA Papua Barat'),
 
     /*
     |--------------------------------------------------------------------------

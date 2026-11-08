@@ -54,7 +54,7 @@
         }
         if(s.podium){
             const links=config.host?`<a class="btn btn-primary" href="${esc(config.resultUrl)}">Lihat detail hasil →</a><a class="btn btn-light" href="${esc(config.dashboardUrl)}">Kembali ke dasbor</a>`:`<a class="btn btn-primary" href="${esc(config.joinUrl)}">Gabung permainan lain →</a>`;
-            podiumAnimation=window.QuizPodium.mount(root,s,{host:config.host,avatar:characterAvatar,esc,points,sound,control,now:()=>Date.now()+offset,isBusy:()=>busy,animate:animatePodium,leaderboard,links});
+            podiumAnimation=window.QuizPodium.mount(root,s,{host:config.host,avatar:characterAvatar,esc,points,sound,control,now:()=>Date.now()+offset,isBusy:()=>busy,animate:animatePodium,leaderboard,links,appName:config.appName});
             document.querySelector('#finish-game')?.setAttribute('hidden','');
             if(focusPodium){const heading=document.querySelector('#podium-heading');heading.setAttribute('tabindex','-1');heading.focus({preventScroll:true});focusPodium=false;}
             if(s.status==='finished'){stopped=true;clearTimeout(pollTimer);clearInterval(ticking);sync.textContent='Hasil tersimpan';}

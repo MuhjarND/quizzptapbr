@@ -1,4 +1,4 @@
-# Arsitektur QUIZ by PTA Pabar
+# Arsitektur Cerdas Bersama PTA Papua Barat
 
 MVP monolit Laravel 7.30.7, PHP 7.4.33, database MySQL/InnoDB (pengujian lokal juga memakai MariaDB 10.4.27), Blade, Bootstrap 5.3.3 CSS, dan JavaScript native. Tidak ada Node runtime, WebSocket, layanan berbayar, atau proses build frontend yang diperlukan. Semua font, ilustrasi, Bootstrap, CSS, dan JS disajikan lokal.
 

@@ -1,7 +1,7 @@
 (() => {
     'use strict';
     const crown = '<svg viewBox="0 0 64 52" aria-hidden="true"><path d="M8 12 21 25 32 5 43 25 56 12 50 43H14Z" fill="currentColor"/><path d="M17 49h30" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg>';
-    function mount(root,state,{host,avatar,esc,points,sound,control,now,isBusy=()=>false,animate=false,leaderboard,links}) {
+    function mount(root,state,{host,avatar,esc,points,sound,control,now,isBusy=()=>false,animate=false,leaderboard,links,appName='Cerdas Bersama PTA Papua Barat'}) {
         const p=state.podium, current=p.winners[p.winners.length-1], intro=p.step===1?1600:0;
         const elapsed=Math.max(0,now()-Date.parse(p.step_at)), duration=intro+(p.complete?3000:1400);
         const moving=animate&&!document.hidden&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches&&elapsed<duration;
@@ -9,7 +9,7 @@
         const order=p.total===3?[2,1,3]:p.total===2?[2,1]:[1];
         const confetti=Array.from({length:36},(_,i)=>`<i style="--x:${(i*29)%100}%;--drift:${(i%7-3)*36}px;--delay:${i%9*65}ms;--turn:${i*47}deg"></i>`).join('');
         root.innerHTML=`<section class="podium-ceremony ${moving?'is-moving':''} ${p.complete?'has-champion':''}" style="--reveal-delay:${Math.max(0,intro-elapsed)}ms;--opening-delay:${-elapsed}ms" aria-labelledby="podium-heading">
-            <header class="podium-header"><p class="podium-eyebrow">QUIZ by PTA Pabar · Podium juara</p><h1 id="podium-heading">${p.complete?'Inilah sang juara!':'Tepuk tangan untuk para juara'}</h1><p>${p.complete?'Usaha terbaik, momen yang layak dirayakan.':'Dari jawaban terbaik, menuju panggung juara.'}</p><span class="podium-counter">${p.step} dari ${slots.length} juara diumumkan</span></header>
+            <header class="podium-header"><p class="podium-eyebrow">${esc(appName)} · Podium juara</p><h1 id="podium-heading">${p.complete?'Inilah sang juara!':'Tepuk tangan untuk para juara'}</h1><p>${p.complete?'Usaha terbaik, momen yang layak dirayakan.':'Dari jawaban terbaik, menuju panggung juara.'}</p><span class="podium-counter">${p.step} dari ${slots.length} juara diumumkan</span></header>
             <div class="ceremony-stage" data-podium-stage>
                 <div class="stage-beam beam-left" aria-hidden="true"></div><div class="stage-beam beam-right" aria-hidden="true"></div><div class="stage-orbit" aria-hidden="true"></div>
                 ${p.complete?`<div class="champion-confetti" aria-hidden="true">${confetti}</div>`:''}

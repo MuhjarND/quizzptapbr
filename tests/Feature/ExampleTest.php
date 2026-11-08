@@ -16,6 +16,6 @@ class ExampleTest extends TestCase
     {
         $response = $this->get('/');
 
-        $response->assertStatus(200)->assertSee('Buat Kuis')->assertSee('Gabung Permainan')->assertSee('QUIZ by PTA Pabar');
+        $response->assertStatus(200)->assertSee('Buat Kuis')->assertSee('Gabung Permainan')->assertSee('Cerdas Bersama PTA Papua Barat');
     }
 }
