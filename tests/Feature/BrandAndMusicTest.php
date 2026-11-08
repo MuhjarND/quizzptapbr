@@ -27,7 +27,7 @@ class BrandAndMusicTest extends TestCase
     {
         $this->assertSame('Cerdas Bersama PTA Papua Barat',config('app.name'));
         $this->assertSame('quizarena_session',config('session.cookie'));
-        foreach(['/','/login','/gabung'] as $url) $this->get($url)->assertOk()->assertSee('Cerdas Bersama PTA Papua Barat')->assertSee('cerdas-bersama-logo-v1.png')->assertDontSee('QuizArena');
+        foreach(['/','/login','/gabung'] as $url) $this->get($url)->assertOk()->assertSee('Cerdas Bersama PTA Papua Barat')->assertSee('cerdas-bersama-pta-lockup-v2.svg')->assertDontSee('QuizArena');
     }
     public function test_host_game_has_independent_music_and_effect_controls()
     {

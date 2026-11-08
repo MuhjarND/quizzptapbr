@@ -1,5 +1,3 @@
 <a class="brand" href="{{ $brandHref ?? route('home') }}" aria-label="{{ config('app.name') }}">
-    <img class="pta-official-logo" src="{{ asset('images/pta-papua-barat-official.png') }}" alt="Pengadilan Tinggi Agama Papua Barat" width="396" height="500">
-    <span class="brand-divider" aria-hidden="true"></span>
-    <img class="cerdas-brand-logo" src="{{ asset('images/cerdas-bersama-logo-v1.png') }}" alt="{{ config('app.name') }}" width="900" height="284" fetchpriority="high">
+    <img class="cerdas-brand-logo" src="{{ asset('images/cerdas-bersama-pta-lockup-v2.svg') }}" alt="{{ config('app.name') }} — Pengadilan Tinggi Agama Papua Barat" width="240" height="62" style="display:block;max-width:100%;height:auto" fetchpriority="high">
 </a>

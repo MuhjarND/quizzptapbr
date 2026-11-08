@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ asset('vendor/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/characters.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/brand-music.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/brand-music.css') }}?v={{ filemtime(public_path('css/brand-music.css')) }}">
     <link rel="stylesheet" href="{{ asset('css/standings.css') }}">
     <link rel="stylesheet" href="{{ asset('css/podium.css') }}">
     <script src="{{ asset('js/app.js') }}" defer></script>
