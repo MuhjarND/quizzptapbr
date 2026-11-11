@@ -58,7 +58,7 @@ Alokasi PIN: kuis dikunci agar snapshot konsisten dengan editor; baris pengguna 
 
 State aktif hanya mengandung pilihan teks dan metadata, tanpa correct_index, is_correct, atau skor jawaban peserta. Hasil soal perantara membuka correct_index, distribusi, dan leaderboard. Hasil soal terakhir menahan semuanya melalui final_pending. Saat podium, hanya pemenang yang sudah diumumkan dikirim (rank 3 lalu 2 lalu 1); leaderboard lengkap dibuka pada finished. Browser menghitung offset jam dari server_now dan waktu tengah request, lalu menghitung sisa waktu dari deadline; browser tidak menentukan tenggat atau skor. Jawaban yang diterima setelah deadline atau untuk ID soal lama ditolak server.
 
-Migration 2026_11_04 menambah podium_step (default 0) dan podium_step_at (ms). Kontrol next terakhir/finish membuka upacara. Kontrol reveal bertransaksi dengan lock/version yang sama, menolak advance sebelum ready_at (3.8 detik pembuka, 2.2 detik berikutnya), dan selesai saat rank 1 diizinkan. Tidak ada nama/skor juara tersembunyi dalam payload podium; participants tetap hanya katalog identitas tanpa rank/skor. Route hasil lengkap masih mensyaratkan finished. Sesi lama finished dengan step 0 tetap memakai hasil tersimpan. podium.js hanya mengatur presentasi, efek dan timer yang dibatalkan saat keluar; refresh memulihkan tahap terakhir tanpa replay. Satu/dua peserta memakai 1 atau 2→1 tanpa juara fiktif.
+Migration 2026_11_04 menambah podium_step (default 0) dan podium_step_at (ms). Kontrol next terakhir/finish membuka upacara. Kontrol reveal bertransaksi dengan lock/version yang sama, menolak advance sebelum ready_at (8.8 detik pembuka, 7.2 detik berikutnya), dan selesai saat rank 1 diizinkan. Tidak ada nama/skor juara tersembunyi dalam payload podium; participants tetap hanya katalog identitas tanpa rank/skor. Route hasil lengkap masih mensyaratkan finished. Sesi lama finished dengan step 0 tetap memakai hasil tersimpan. podium.js hanya mengatur presentasi, efek dan timer yang dibatalkan saat keluar; refresh memulihkan tahap terakhir tanpa replay. Satu/dua peserta memakai 1 atau 2→1 tanpa juara fiktif.
 
 ## Skor dan seri
 
@@ -84,7 +84,7 @@ $total = $participant->answers->sum(function ($answer) use ($scoreService) {
 
 Request berurutan setiap 1500ms, timeout jaringan 8 detik ditangani UI, backoff 5 detik saat gagal; tab tersembunyi/pagehide/finished menghentikan polling. Kembali online/tab aktif melanjutkan. State berversi lebih lama diabaikan. Jawaban dikunci lokal sambil menunggu proyeksi server; constraint unik tetap melindungi terhadap request ganda. Jika respons jawaban terputus setelah commit, polling berikutnya mengembalikan my_answer dan mengunci pilihan.
 
-Login 8/menit, registrasi 5/menit, percobaan PIN 15/menit berbasis identitas default throttle Laravel (tamu berdasarkan IP). Polling 90/menit dan jawaban/kontrol 30/menit memakai bucket session per route agar peserta satu Wi-Fi tidak saling menghabiskan kuota. Cache file sesuai satu server MVP; gunakan cache/session bersama untuk beberapa server.
+Login 8/menit dan percobaan PIN 15/menit berbasis identitas default throttle Laravel (tamu berdasarkan IP). Polling 90/menit dan jawaban/kontrol 30/menit memakai bucket session per route agar peserta satu Wi-Fi tidak saling menghabiskan kuota. Cache file sesuai satu server MVP; gunakan cache/session bersama untuk beberapa server.
 
 ## Asumsi dan batas MVP
 

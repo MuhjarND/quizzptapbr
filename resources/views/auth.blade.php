@@ -1,13 +1,35 @@
 @extends('layouts.app')
-@section('title', $register ? 'Buat akun' : 'Masuk')
+@section('title', 'Masuk')
 @section('body-class', 'auth-page')
 @section('content')
-<div class="auth-layout"><section class="auth-visual"><h1>Keseruan berikutnya<br><span>dimulai dari Anda.</span></h1><img src="{{ asset('images/trophy.png') }}" alt="Piala {{ config('app.name') }}" width="500" height="360"><p>Satu kuis. Banyak ide. Belajar bersama.</p></section><section class="auth-card"><a class="back-link" href="{{ route('home') }}">@include('partials.icon', ['name' => 'back']) Beranda</a><h2>{{ $register ? 'Siap jadi pembawa keseruan?' : 'Selamat datang kembali.' }}</h2><p class="muted">{{ $register ? 'Buat akun host untuk merangkai kuis pertama Anda.' : 'Masuk untuk melanjutkan kuis dan permainan Anda.' }}</p>
-<form action="{{ $register ? route('register.store') : route('login.store') }}" method="POST" novalidate>@csrf
-@if($register)<div class="field"><label for="name">Nama lengkap</label><input class="form-control" id="name" name="name" value="{{ old('name') }}" autocomplete="name" required maxlength="60" placeholder="Nama Anda"></div>@endif
-<div class="field"><label for="email">Email</label><input class="form-control" id="email" type="email" name="email" value="{{ old('email') }}" autocomplete="email" required placeholder="nama@email.com" @error('email') aria-invalid="true" @enderror></div>
-<div class="field"><label for="password">Kata sandi</label><div class="password-field"><input class="form-control" id="password" name="password" type="password" autocomplete="{{ $register ? 'new-password' : 'current-password' }}" required @if($register) minlength="8" @endif placeholder="{{ $register ? 'Minimal 8 karakter' : 'Masukkan kata sandi' }}"><button type="button" class="password-toggle" aria-controls="password" aria-pressed="false">Lihat</button></div></div>
-@if($register)<div class="field"><label for="password_confirmation">Konfirmasi kata sandi</label><input class="form-control" id="password_confirmation" name="password_confirmation" type="password" autocomplete="new-password" required placeholder="Ulangi kata sandi"></div>@else<label class="check-label"><input type="checkbox" name="remember" value="1"> Ingat saya</label>@endif
-<button class="btn btn-primary w-100 auth-submit">{{ $register ? 'Buat akun' : 'Masuk' }} @include('partials.icon', ['name' => 'arrow'])</button></form>
-<p class="auth-switch">{{ $register ? 'Sudah punya akun?' : 'Belum punya akun?' }} <a href="{{ $register ? route('login') : route('register') }}">{{ $register ? 'Masuk' : 'Daftar sekarang' }}</a></p><div class="auth-divider"></div><a class="guest-link" href="{{ route('join') }}">@include('partials.icon', ['name' => 'game']) Mau ikut main? Gabung dengan PIN</a></section></div>
+<div class="auth-layout">
+    <section class="auth-visual">
+        <h1>Keseruan berikutnya<br><span>dimulai dari Anda.</span></h1>
+        <img src="{{ asset('images/trophy.png') }}" alt="Piala {{ config('app.name') }}" width="500" height="360">
+        <p>Satu kuis. Banyak ide. Belajar bersama.</p>
+    </section>
+    <section class="auth-card">
+        <a class="back-link" href="{{ route('home') }}">@include('partials.icon', ['name' => 'back']) Beranda</a>
+        <h2>Selamat datang kembali.</h2>
+        <p class="muted">Masuk untuk melanjutkan kuis dan permainan Anda.</p>
+        <form action="{{ route('login.store') }}" method="POST" novalidate>
+            @csrf
+            <div class="field">
+                <label for="email">Email</label>
+                <input class="form-control" id="email" type="email" name="email" value="{{ old('email') }}" autocomplete="email" required placeholder="nama@email.com" @error('email') aria-invalid="true" @enderror>
+            </div>
+            <div class="field">
+                <label for="password">Kata sandi</label>
+                <div class="password-field">
+                    <input class="form-control" id="password" name="password" type="password" autocomplete="current-password" required placeholder="Masukkan kata sandi">
+                    <button type="button" class="password-toggle" aria-controls="password" aria-pressed="false">Lihat</button>
+                </div>
+            </div>
+            <label class="check-label"><input type="checkbox" name="remember" value="1"> Ingat saya</label>
+            <button class="btn btn-primary w-100 auth-submit">Masuk @include('partials.icon', ['name' => 'arrow'])</button>
+        </form>
+        <div class="auth-divider"></div>
+        <a class="guest-link" href="{{ route('join') }}">@include('partials.icon', ['name' => 'game']) Mau ikut main? Gabung dengan PIN</a>
+    </section>
+</div>
 @endsection

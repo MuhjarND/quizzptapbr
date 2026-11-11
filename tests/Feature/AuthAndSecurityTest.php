@@ -10,10 +10,17 @@ use Tests\TestCase;
 class AuthAndSecurityTest extends TestCase
 {
     use RefreshDatabase;
-    public function test_registration_login_logout_and_guest_redirect()
+    public function test_public_registration_is_disabled_and_existing_hosts_can_login_and_logout()
     {
         $this->get('/dashboard')->assertRedirect(route('login'));
-        $this->post('/register',['name'=>'Nadia','email'=>'nadia@example.test','password'=>'Secret123!','password_confirmation'=>'Secret123!'])->assertRedirect('/dashboard');
+        $this->get('/register')->assertNotFound();
+        $this->post('/register',['name'=>'Nadia','email'=>'nadia@example.test','password'=>'Secret123!','password_confirmation'=>'Secret123!'])->assertNotFound();
+        $this->assertSame(0, User::count());
+        foreach (['/', '/login', '/gabung'] as $url) {
+            $this->get($url)->assertOk()->assertDontSee('/register')->assertDontSee('Daftar sekarang');
+        }
+        User::create(['name'=>'Nadia','email'=>'nadia@example.test','password'=>bcrypt('Secret123!')]);
+        $this->post('/login',['email'=>'nadia@example.test','password'=>'Secret123!'])->assertRedirect('/dashboard');
         $this->assertAuthenticated(); $this->get('/login')->assertRedirect('/dashboard');
         $this->post('/logout')->assertRedirect('/'); $this->assertGuest();
         $this->post('/login',['email'=>'nadia@example.test','password'=>'incorrect'])->assertSessionHasErrors('email');

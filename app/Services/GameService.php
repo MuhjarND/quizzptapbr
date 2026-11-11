@@ -20,7 +20,7 @@ class GameService
     }
     private function podiumReadyAt(GameSession $game)
     {
-        return $game->podium_step_at->copy()->addMilliseconds($game->podium_step === 1 ? 3800 : 2200);
+        return $game->podium_step_at->copy()->addMilliseconds($game->podium_step === 1 ? 8800 : 7200);
     }
     public function create(Quiz $quiz): GameSession
     {
@@ -150,6 +150,7 @@ class GameService
                 $rows = $this->leaderboard($game); $total = min(3, count($rows));
                 $result['podium'] = ['step' => $game->podium_step, 'total' => $total,
                     'step_at' => $game->podium_step_at->format('Y-m-d\TH:i:s.vP'),
+                    'countdown_seconds' => 5,
                     'ready_at' => $this->podiumReadyAt($game)->format('Y-m-d\TH:i:s.vP'),
                     'complete' => $game->status === 'finished',
                     'winners' => array_reverse(array_slice($rows, $total - $game->podium_step, $game->podium_step))];

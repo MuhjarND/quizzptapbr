@@ -51,7 +51,7 @@ try {
     foreach([$p,$p2] as $player)$service->answer($game,$player,$qid,0);
     $state=$service->state($game);$game=$service->transition($game,'next',$state['version']);
     // Make this isolated fixture ready without sleeping through an animation.
-    $game->update(['podium_step_at'=>now()->subSeconds(5)]);$state=$service->state($game);
+    $game->update(['podium_step_at'=>now()->subSeconds(10)]);$state=$service->state($game);
     $race(['reveal',(string)$game->id,(string)$state['version']]);
     if($game->fresh()->podium_step!==2||$game->fresh()->status!=='finished')throw new RuntimeException('Podium reveal skipped or duplicated');
     echo "PASS: concurrent podium reveals announce exactly one next winner.\n";

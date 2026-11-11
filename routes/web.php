@@ -17,8 +17,6 @@ Route::view('/', 'landing')->name('home');
 Route::middleware('guest')->group(function () {
     Route::get('/login', 'AuthController@login')->name('login');
     Route::post('/login', 'AuthController@authenticate')->middleware('throttle:8,1')->name('login.store');
-    Route::get('/register', 'AuthController@register')->name('register');
-    Route::post('/register', 'AuthController@store')->middleware('throttle:5,1')->name('register.store');
 });
 Route::post('/logout', 'AuthController@logout')->middleware('auth')->name('logout');
 Route::get('/gabung', 'GameController@joinForm')->name('join');

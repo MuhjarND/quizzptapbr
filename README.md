@@ -16,7 +16,7 @@ Database `quiz_arena` sudah dibuat dan diisi tiga kuis contoh. Development serve
 php artisan serve --host=127.0.0.1 --port=8000
 ```
 
-Akun contoh lokal: **host@quizarena.test** / **QuizArena123!**. Akun ini dibuat hanya oleh seeder; ubah/hapus sebelum memakai data nyata. Registrasi akun baru tersedia. Password demo bukan credential production.
+Akun contoh lokal: **host@quizarena.test** / **QuizArena123!**. Akun ini dibuat hanya oleh seeder; ubah/hapus sebelum memakai data nyata. Akun host tambahan dibuat melalui perintah `php artisan host:create`. Pendaftaran publik dinonaktifkan. Password demo bukan credential production.
 
 ## Instalasi baru
 
@@ -138,7 +138,7 @@ Angka total menghitung naik dari skor sebelumnya. Peserta yang berubah posisi be
 
 Polling dan refresh tidak mengulang animasi/suaranya. Refresh menampilkan hasil akhir soal perantara secara langsung. Preferensi reduced-motion menonaktifkan perpindahan/angka bergerak. Mute/volume efek yang sudah ada juga mengatur suara peringkat.
 
-Setelah **soal terakhir**, semua skor/peringkat ditahan dan peserta menunggu host menekan **Lihat hasil podium**. Tirai panggung terbuka, lalu **juara 3** muncul pertama. Host menekan **Juara selanjutnya** untuk mengungkap **juara 2**, lalu sekali lagi untuk **juara 1**. Setiap tahap memiliki efek suara; juara pertama mendapat mahkota, halo, konfeti dan fanfare khusus. Peringkat lengkap baru tampil setelah pengumuman juara pertama. Jika hanya dua peserta, urutannya 2→1; satu peserta langsung juara 1. Refresh memulihkan tahap yang sudah dibuka tanpa mengulang efek. Tahapan tersimpan dan disinkronkan server; tidak ada skor/rank juara berikutnya yang dikirim sebelum host mengungkapnya. Jalankan `php artisan migrate` untuk kolom podium tambahan (migration sudah diterapkan pada aplikasi lokal).
+Setelah **soal terakhir**, semua skor/peringkat ditahan dan peserta menunggu host menekan **Lihat hasil podium**. Tirai panggung terbuka, lalu notifikasi **hitung mundur 5→4→3→2→1** mendahului juara 3. Host menekan **Juara selanjutnya** untuk memulai hitung mundur lima detik sebelum juara 2, lalu sekali lagi sebelum juara 1. Setiap angka mendapat bunyi singkat, kemudian fanfare juara berbunyi saat peserta muncul. Juara pertama mendapat mahkota, halo, konfeti dan fanfare khusus. Peringkat lengkap baru tampil setelah pengumuman juara pertama. Jika hanya dua peserta, urutannya 2→1; satu peserta mendapat hitung mundur sebelum juara 1. Refresh melanjutkan sisa hitung mundur dari waktu server. Tahapan tersimpan dan disinkronkan server. Jalankan `php artisan migrate` untuk kolom podium tambahan (migration sudah diterapkan pada aplikasi lokal).
 
 ## Pemeriksaan
 

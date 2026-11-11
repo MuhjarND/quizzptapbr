@@ -25,7 +25,7 @@
         <button class="btn btn-primary btn-lg w-100">Gabung permainan @include('partials.icon', ['name' => 'arrow'])</button><p class="field-help center">Peserta tidak perlu membuat akun.</p>
         <div class="join-sound">@include('partials.sound-controls')<p data-sound-description>Aktifkan suara, biar makin seru.</p></div>
     </section>
-</form><p class="join-host-link">Ingin jadi host? <a href="{{ route('register') }}">Buat kuis Anda sendiri</a></p>
+</form><p class="join-host-link">Sudah punya akun host? <a href="{{ route('login') }}">Masuk sebagai host</a></p>
 @endsection
 @push('scripts')
 @php($characterCatalog = \App\Support\Characters::forBrowser())

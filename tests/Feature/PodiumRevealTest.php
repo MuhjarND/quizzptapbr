@@ -33,6 +33,8 @@ class PodiumRevealTest extends TestCase
         $game=$service->transition($game,'next',$s['version']);
         for($step=1;$step<=3;$step++){
             $s=$service->state($game,$players[0]);$this->assertSame($step,$s['podium']['step']);
+            $this->assertSame(5, $s['podium']['countdown_seconds']);
+            $this->assertSame($step === 1 ? 8800 : 7200, (int) Carbon::parse($s['podium']['step_at'])->diffInMilliseconds(Carbon::parse($s['podium']['ready_at'])));
             $this->assertSame(array_slice([3,2,1],0,$step),array_column($s['podium']['winners'],'rank'));
             $this->assertSame(array_slice(array_reverse(array_slice(array_column($players,'id'),0,3)),0,$step),array_column($s['podium']['winners'],'id'));
             $this->assertSame($s['podium'],$service->state($game->fresh())['podium']);
